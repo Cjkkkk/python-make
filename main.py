@@ -26,7 +26,8 @@ def check_config(config):
     for target in config:
         if "dependency" not in config[target].keys():
             logging.error("Must provide dependency for target %s", target)
-
+            exit(0)
+            
         for key in config[target].keys():
             if key not in ["command", "dependency"]:
                 logging.error("Key %s for target %s is not supported", key, target)
@@ -81,6 +82,7 @@ if __name__ == "__main__":
     parser.add_argument('-v', '--verbose', default=False, action="store_true")
 
     args = parser.parse_args()
+    
     os.chdir(args.root)
     set_logging(args.verbose)
     config = get_config(args.config)
