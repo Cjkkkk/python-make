@@ -1,0 +1,17 @@
+{
+    "all": {
+        "dependency": ["main"]
+    },
+    "main": {
+        "dependency": ["main.o", "utils.o"],
+        "command": ["g++ main.o utils.o -o main", "echo success"]
+    },
+    "main.o": {
+        "dependency": ["main.cpp"],
+        "command": ["g++ -c main.cpp"]
+    },
+    "utils.o": {
+        "dependency": ["utils.cpp"],
+        "command": ["g++ -c utils.cpp"]
+    }
+}
