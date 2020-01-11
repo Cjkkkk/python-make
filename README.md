@@ -1,3 +1,3 @@
 # python make
 ## example
-python main.py -v -r test
+python main.py --verbose --config config.json --target all --root test
