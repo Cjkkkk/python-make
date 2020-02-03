@@ -70,6 +70,12 @@ def compile_target(config, target):
         logger.info("Skip target: %s", target)
     return if_needs_recompile
 
+def main(args):
+    os.chdir(args.root)
+    set_logging(args.verbose)
+    config = get_config(args.config)
+    check_config(config)
+    compile_target(config, args.target)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -79,9 +85,4 @@ if __name__ == "__main__":
     parser.add_argument('-v', '--verbose', default=False, action="store_true")
 
     args = parser.parse_args()
-    
-    os.chdir(args.root)
-    set_logging(args.verbose)
-    config = get_config(args.config)
-    check_config(config)
-    compile_target(config, args.target)
+    main(args)
