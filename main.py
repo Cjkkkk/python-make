@@ -43,10 +43,7 @@ def if_older(a, b):
     """
     time_a = os.path.getmtime(a)
     time_b = os.path.getmtime(b)
-    if time_a < time_b:
-        return True
-    else:
-        return False
+    return time_a < time_b
 
 def compile_target(config, target):
     """return True if target is recompiled, return False if otherwise
